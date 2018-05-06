@@ -1,0 +1,14 @@
+{
+    "searchBox": {
+        "type": "css",
+        "locator": "#lst-ib"
+    },
+    "searchButton": {
+        "type": "css",
+        "locator": "#tsf > div.tsf-p > div.jsb > center > input[type='submit']:nth-child(1)"
+    },
+    "firstResult": {
+        "type" : "css",
+        "locator" : "#rso > div:nth-child(1) > div > div:nth-child(1) > div > div > h3 > a"
+    }
+}

@@ -1,0 +1,21 @@
+.idea
+*.log
+ebay.log
+jawsFiles
+.settings
+.build
+.DS_Store
+node_modules
+test/functional/report/*.xml
+test/functional/report/*.png
+test/functional/report/*.html
+/logs
+/cdbs
+com.*
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db

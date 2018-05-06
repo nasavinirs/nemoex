@@ -1,0 +1,383 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2018-05-05T14:09:28.875Z",
+    "end": "2018-05-05T14:09:50.038Z",
+    "duration": 21163,
+    "testsRegistered": 5,
+    "passPercent": 20,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 4,
+    "hasSkipped": true,
+    "passPercentClass": "danger",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "98662697-c88f-46a7-bf49-78d7b156df3a",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "df56e159-a584-4a24-99e9-bfb2d3a639df",
+        "title": "@flow@",
+        "fullFile": "/Users/srinivasans/JSProjects/nemo-example-app/test/functional/spec/flow-spec.js",
+        "file": "/test/functional/spec/flow-spec.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "@flow@ \"before all\" hook",
+            "timedOut": false,
+            "duration": 2549,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo = Nemo(function (err) {\n  done = util.checkError(err, done);\n  navigate = new Navigate(nemo);\n  bank = new Bank(nemo);\n  card = new Card(nemo);\n  nemo.wd.logging.installConsoleHandler();\n  nemo.wd.logging.getLogger().setLevel(nemo.wd.logging.Level.ALL);\n  nemo.driver.controlFlow().on('uncaughtException', function (err) {\n    console.error('err', err);\n    throw err;\n  });\n  done();\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "16d72ce9-3946-406b-ba2f-64830f6accf0",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after all\" hook",
+            "fullTitle": "@flow@ \"after all\" hook",
+            "timedOut": false,
+            "duration": 485,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo.driver.quit().then(done);",
+            "err": {},
+            "isRoot": false,
+            "uuid": "467aa842-141f-4a15-ba38-10b57c677853",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "should execute high level functionality using flow modules",
+            "fullTitle": "@flow@ should execute high level functionality using flow modules",
+            "timedOut": false,
+            "duration": 18108,
+            "state": "passed",
+            "speed": "slow",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "navigate.loginFailure('fail@fail.com', '11111111');\nnavigate.loginSuccess('me@mine.com', '11111111');\ncard.addSuccess('0123456789012345', 'Misa');\ncard.addFailure('1001001', 'Misa');\nbank.addSuccess('0432787332', '92929');\nbank.addFailure('1001001', '92929');\nnavigate.logout().then(util.doneSuccess(done), util.doneError(done));",
+            "err": {},
+            "isRoot": false,
+            "uuid": "89622a80-a74d-4bce-b44f-41133b5f0d85",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "89622a80-a74d-4bce-b44f-41133b5f0d85"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 18108,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 30000
+      },
+      {
+        "uuid": "aac67f48-bca8-44e2-bc03-1de5ea4c271f",
+        "title": "@generic@",
+        "fullFile": "/Users/srinivasans/JSProjects/nemo-example-app/test/functional/spec/generic-spec.js",
+        "file": "/test/functional/spec/generic-spec.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "@generic@ \"before all\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo = Nemo(function (err) {\n  if (err) {\n    return done(err);\n  }\n  done();\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "9f9589e3-b56e-4190-842f-06b07a14687f",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after all\" hook",
+            "fullTitle": "@generic@ \"after all\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo.driver.quit().then(done);",
+            "err": {},
+            "isRoot": false,
+            "uuid": "f198f01f-0503-4e59-914b-b8c0014090ee",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "should execute high level functionality using generic methods",
+            "fullTitle": "@generic@ should execute high level functionality using generic methods",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "//login\nnemo.driver.get(nemo.data.baseUrl);\nutil.waitForJSReady(nemo);\nnemo.view._waitVisible('id:email').sendKeys('me@mine.com');\nnemo.view._find('#password').sendKeys('11111111');\nnemo.view._find('#loginbutton').click();\n//add card\nnemo.view._waitVisible('#cc').sendKeys('123456789012');\nnemo.view._finds('#type option').then(function(opts) {\n  return opts[1].click();\n});\nnemo.view._find('#ccbutton').click();\nnemo.view._waitVisible('p.result.good');\n//add bank\nnemo.view._find('#addbalink').click();\nnemo.view._waitVisible('#ban').sendKeys('0123545332');\nnemo.view._find('#brn').sendKeys('343434');\nnemo.view._find('#babutton').click();\nnemo.view._waitVisible('p.result.good');\n//logout\nnemo.view._find('#logoutlink').click();\nutil.waitForJSReady(nemo);\nnemo.view._waitVisible('id:email').sendKeys('me@mine.com');\nnemo.view._find('#password').sendKeys('11111111');\nnemo.view._find('#loginbutton').click();\n//add card\nnemo.view._waitVisible('#cc').sendKeys('123456789012');\nnemo.view._finds('#type option').then(function(opts) {\n  return opts[1].click();\n});\nnemo.view._find('#ccbutton').click();\nnemo.view._waitVisible('p.result.good');\n//add bank\nnemo.view._find('#addbalink').click();\nnemo.view._waitVisible('#ban').sendKeys('0123545332');\nnemo.view._find('#brn').sendKeys('343434');\nnemo.view._find('#babutton').click();\nnemo.view._waitVisible('p.result.good');\n//logout\nnemo.view._find('#logoutlink').click();\nutil.waitForJSReady(nemo);\nnemo.view._waitVisible('id:email').sendKeys('me@mine.com');\nnemo.view._find('#password').sendKeys('11111111');\nnemo.view._find('#loginbutton').click();\n//add card\nnemo.view._waitVisible('#cc').sendKeys('123456789012');\nnemo.view._finds('#type option').then(function(opts) {\n  return opts[1].click();\n});\nnemo.view._find('#ccbutton').click();\nnemo.view._waitVisible('p.result.good');\n//add bank\nnemo.view._find('#addbalink').click();\nnemo.view._waitVisible('#ban').sendKeys('0123545332');\nnemo.view._find('#brn').sendKeys('343434');\nnemo.view._find('#babutton').click();\nnemo.view._waitVisible('p.result.good');\n//logout\nnemo.view._find('#logoutlink').click();\nnemo.view._waitVisible('#email').then(function () {\n  done();\n}, function (err) {\n  done(err);\n})",
+            "err": {},
+            "isRoot": false,
+            "uuid": "e1c2efe6-0c5d-451b-a425-4770252cdc22",
+            "isHook": false,
+            "skipped": true
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [
+          "e1c2efe6-0c5d-451b-a425-4770252cdc22"
+        ],
+        "duration": null,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 30000
+      },
+      {
+        "uuid": "ce8bd99f-6afe-4eb6-b666-b1dd3f18288f",
+        "title": "@page@",
+        "fullFile": "/Users/srinivasans/JSProjects/nemo-example-app/test/functional/spec/page-spec.js",
+        "file": "/test/functional/spec/page-spec.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "@page@ \"before all\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo = Nemo(done);",
+            "err": {},
+            "isRoot": false,
+            "uuid": "37d599e3-98e2-4f1d-ad9e-d240771bcaf3",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after all\" hook",
+            "fullTitle": "@page@ \"after all\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo.driver.quit().then(done);",
+            "err": {},
+            "isRoot": false,
+            "uuid": "d4d40cba-4e65-4775-a964-d1ebc3b53178",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "should execute high level functionality using nemo page methods",
+            "fullTitle": "@page@ should execute high level functionality using nemo page methods",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "//login\n    nemo.driver.get(nemo.data.baseUrl);\n    util.waitForJSReady(nemo);\n    nemo.page.home.login.email.waitForDisplayed();\n    nemo.page.home.login.setValue({\n      email: 'me@mine.com',\n      password: '11111111'\n    });\n    nemo.page.home.login.button.click();\n    //add card success\n    nemo.page.home.card.number.waitForDisplayed();\n    nemo.page.home.card.setValue({\n      number: '123456789012',\n      type: 'Misa'\n    });\n    nemo.driver.sleep(5000);\n    nemo.page.home.card.button.click();\n    nemo.page.home.card.success.waitForPresent();\n    //add card fail\n    nemo.page.home.card.number.waitForDisplayed();\n    nemo.page.home.card.setValue({\n      number: '1001001',\n      type: 'Misa'\n    });\n    nemo.page.home.card.button.click();\n    nemo.page.home.card.failure.waitForPresent();\n    //add bank success\n    nemo.page.home.nav.bankLink.click();\n    nemo.page.home.bank.number.waitForDisplayed()\n    nemo.page.home.bank.setValue({\n      number: '0123545332',\n      routing: '343434'\n    });\n    nemo.page.home.bank.button.click();\n    nemo.page.home.bank.success.waitForPresent();\n    //add bank fail\n    // TODO Added for the similarity to view-spec, but this is not correct...\n    nemo.page.home.nav.bankLink.click();\n    nemo.page.home.bank.number.waitForDisplayed()\n    nemo.page.home.bank.setValue({\n      number: '1001001',\n      routing: '92929'\n    });\n    nemo.page.home.bank.button.click();\n    nemo.page.home.bank.failure.waitForPresent();\n    //logout\n    nemo.page.home.nav.logoutLink.click();\n    nemo.page.home.login.email.waitForDisplayed().then(function () {\n      done();\n    }, function (err) {\n      done(err);\n    })",
+            "err": {},
+            "isRoot": false,
+            "uuid": "f129b8ef-212f-4ba2-866d-8b1eeeafffe0",
+            "isHook": false,
+            "skipped": true
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [
+          "f129b8ef-212f-4ba2-866d-8b1eeeafffe0"
+        ],
+        "duration": null,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 30000
+      },
+      {
+        "uuid": "91fafa60-75a6-4c1d-a0ae-c0a733a06217",
+        "title": "@view@",
+        "fullFile": "/Users/srinivasans/JSProjects/nemo-example-app/test/functional/spec/view-spec.js",
+        "file": "/test/functional/spec/view-spec.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "@view@ \"before all\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo = Nemo(function (err) {\n  if (err) {\n    return done(err);\n  }\n  done();\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "703314cd-7667-4c01-9707-03750974dbfc",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after all\" hook",
+            "fullTitle": "@view@ \"after all\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo.driver.quit().then(done);",
+            "err": {},
+            "isRoot": false,
+            "uuid": "ba8714c4-87c0-46f4-8bb9-c0b0eaaaa4c1",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "should execute high level functionality using generic methods",
+            "fullTitle": "@view@ should execute high level functionality using generic methods",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "//login\n    nemo.driver.get(nemo.data.baseUrl);\n    util.waitForJSReady(nemo);\n    nemo.view.login.emailWaitVisible().sendKeys('me@mine.com');\n    nemo.view.login.password().sendKeys('11111111');\n    nemo.view.login.button().click();\n    //add card success\n    nemo.view.card.numberWaitVisible().sendKeys('123456789012');\n    nemo.view.card.typeOptionText('Misa');\n    nemo.view.card.button().click();\n    nemo.view.card.successWait();\n    //add card fail\n    nemo.view.card.number().clear();\n    nemo.view.card.number().sendKeys('1001001');\n    nemo.view.card.typeOptionText('Misa');\n    nemo.view.card.button().click();\n    nemo.view.card.failureWait();\n    //add bank success\n    nemo.view.nav.bankLink().click();\n    nemo.view.bank.numberWaitVisible().sendKeys('0123545332');\n    nemo.view.bank.routing().sendKeys('343434');\n    nemo.view.bank.button().click();\n    nemo.view.bank.successWait();\n    //add bank fail\n    nemo.view.nav.bankLink().click();\n    nemo.view.bank.numberWaitVisible().sendKeys('0123545332');\n    nemo.view.bank.routing().sendKeys('343434');\n    nemo.view.bank.button().click();\n    nemo.view.bank.successWait();\n    //logout\n    nemo.view.nav.logoutLink().click();\n    nemo.view.login.emailWaitVisible().then(function () {\n      done();\n    }, function (err) {\n      done(err);\n    })",
+            "err": {},
+            "isRoot": false,
+            "uuid": "578c40a2-2bf4-48a9-af1e-a54b06ca1ba9",
+            "isHook": false,
+            "skipped": true
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [
+          "578c40a2-2bf4-48a9-af1e-a54b06ca1ba9"
+        ],
+        "duration": null,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 30000
+      },
+      {
+        "uuid": "119d3d65-59a2-4a3b-b888-feca3cdd3186",
+        "title": "@wdb@",
+        "fullFile": "/Users/srinivasans/JSProjects/nemo-example-app/test/functional/spec/wdb-spec.js",
+        "file": "/test/functional/spec/wdb-spec.js",
+        "beforeHooks": [
+          {
+            "title": "\"before all\" hook",
+            "fullTitle": "@wdb@ \"before all\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo = Nemo(function (err) {\n  if (err) {\n    console.error(err);\n    return done(err);\n  }\n  done();\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "36e42bb7-7c98-4d35-81b0-02de64600f93",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "afterHooks": [
+          {
+            "title": "\"after all\" hook",
+            "fullTitle": "@wdb@ \"after all\" hook",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo.driver.quit().then(done);",
+            "err": {},
+            "isRoot": false,
+            "uuid": "4595295d-fbf7-41fd-98bc-94c25df6d0bd",
+            "isHook": true,
+            "skipped": false
+          }
+        ],
+        "tests": [
+          {
+            "title": "should execute high level functionality using generic methods",
+            "fullTitle": "@wdb@ should execute high level functionality using generic methods",
+            "timedOut": false,
+            "duration": 0,
+            "pass": false,
+            "fail": false,
+            "pending": false,
+            "code": "nemo.wdb.get(nemo.data.baseUrl, function (err) {\n  if (err) {\n    return done(err);\n  }\n  setTimeout(function () {\n    done();\n  }, 3000)\n})",
+            "err": {},
+            "isRoot": false,
+            "uuid": "701e50fc-6220-461d-9299-3841474bb984",
+            "isHook": false,
+            "skipped": true
+          }
+        ],
+        "suites": [],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [
+          "701e50fc-6220-461d-9299-3841474bb984"
+        ],
+        "duration": null,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 30000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 30000
+  },
+  "copyrightYear": 2018
+}
